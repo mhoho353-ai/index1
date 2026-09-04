@@ -2,8 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FollowUp</title>
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="Simple lead follow-up tool for service businesses">
+
+<title>FollowUp - Lead Follow-up</title>
 
 <style>
 * {
@@ -12,32 +18,39 @@
 
 body {
     margin: 0;
-    background: #f5f7fb;
-    color: #18212f;
+    background: #f4f6f8;
+    color: #17202a;
     font-family: Arial, sans-serif;
 }
 
 .container {
+    width: 100%;
     max-width: 900px;
-    margin: auto;
+    margin: 0 auto;
     padding: 16px;
 }
 
 .card {
-    background: white;
-    border: 1px solid #e4e7ec;
+    background: #ffffff;
+    border: 1px solid #e1e5e9;
     border-radius: 14px;
     padding: 18px;
     margin-bottom: 16px;
 }
 
 h1 {
-    margin: 0 0 5px;
+    margin: 0 0 6px 0;
+    font-size: 30px;
+}
+
+h2 {
+    margin-top: 0;
 }
 
 .subtitle {
     color: #667085;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
 .grid {
@@ -52,48 +65,82 @@ h1 {
 
 label {
     display: block;
+    margin-bottom: 6px;
     font-size: 13px;
     font-weight: bold;
-    margin-bottom: 6px;
 }
 
 input,
 textarea {
     width: 100%;
     padding: 11px;
-    border: 1px solid #d0d5dd;
+    border: 1px solid #cfd5dc;
     border-radius: 9px;
     font-size: 15px;
+    background: #ffffff;
 }
 
 textarea {
-    min-height: 70px;
+    min-height: 80px;
     resize: vertical;
 }
 
 button {
     border: 0;
     border-radius: 9px;
-    padding: 11px 14px;
+    padding: 10px 13px;
+    font-size: 13px;
     font-weight: bold;
     cursor: pointer;
-    margin: 5px 3px 0 0;
+    margin: 4px 3px 0 0;
 }
 
-.add {
+button:active {
+    transform: translateY(1px);
+}
+
+.add-button {
     width: 100%;
-    background: #18212f;
-    color: white;
-    margin-top: 14px;
+    margin-top: 15px;
+    background: #17202a;
+    color: #ffffff;
+    padding: 13px;
+    font-size: 15px;
 }
 
-.copy {
-    background: #e9efff;
+.cancel-button {
+    width: 100%;
+    margin-top: 8px;
+    background: #eef1f4;
+    color: #17202a;
+    padding: 11px;
 }
 
-.delete {
+.copy-button {
+    background: #e8efff;
+}
+
+.whatsapp-button {
+    background: #e8f7ee;
+    color: #137333;
+}
+
+.status-button {
+    background: #eef1f4;
+}
+
+.edit-button {
+    background: #fff4d6;
+}
+
+.delete-button {
     background: #fee4e2;
     color: #b42318;
+}
+
+.export-button {
+    background: #17202a;
+    color: #ffffff;
 }
 
 .stats {
@@ -103,20 +150,22 @@ button {
 }
 
 .stat {
+    background: #f7f8fa;
+    border-radius: 10px;
+    padding: 12px;
     text-align: center;
-    background: #f8f9fc;
-    padding: 10px;
-    border-radius: 9px;
 }
 
-.stat b {
+.stat-number {
     display: block;
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 3px;
 }
 
 .lead {
     border-top: 1px solid #eaecf0;
-    padding: 15px 0;
+    padding: 16px 0;
 }
 
 .lead:first-child {
@@ -126,34 +175,98 @@ button {
 .lead-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
 }
 
 .customer-name {
+    font-size: 18px;
     font-weight: bold;
-    font-size: 17px;
+    margin-bottom: 3px;
 }
 
 .badge {
-    background: #eef2f6;
-    padding: 5px 8px;
+    background: #eef1f4;
     border-radius: 20px;
+    padding: 5px 9px;
     font-size: 12px;
+    white-space: nowrap;
+}
+
+.badge.follow-up {
+    background: #fff0c2;
+}
+
+.badge.won {
+    background: #e7f6ec;
+}
+
+.badge.lost {
+    background: #fee4e2;
+}
+
+.badge.contacted {
+    background: #e8efff;
+}
+
+.lead-info {
+    margin-top: 8px;
+    line-height: 1.6;
 }
 
 .message {
-    background: #f8f9fc;
-    padding: 10px;
-    border-radius: 8px;
-    margin: 10px 0;
+    background: #f7f8fa;
+    border-radius: 9px;
+    padding: 12px;
+    margin-top: 10px;
+    line-height: 1.5;
     white-space: pre-wrap;
 }
 
 .empty {
     text-align: center;
     color: #667085;
-    padding: 20px;
+    padding: 25px 10px;
+}
+
+.small-note {
+    color: #667085;
+    font-size: 12px;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.section-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.section-actions h2 {
+    margin: 0;
+}
+
+.due-box {
+    background: #fff8e1;
+    border: 1px solid #f0d98c;
+    border-radius: 10px;
+    padding: 11px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    display: none;
+}
+
+.editing-note {
+    background: #fff8e1;
+    border: 1px solid #f0d98c;
+    border-radius: 9px;
+    padding: 10px;
+    margin-top: 12px;
+    font-size: 13px;
+    display: none;
 }
 
 @media (max-width: 650px) {
@@ -162,8 +275,21 @@ button {
         grid-template-columns: 1fr;
     }
 
+    .full {
+        grid-column: auto;
+    }
+
     .stats {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .lead-header {
+        align-items: flex-start;
+    }
+
+    .section-actions {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }
 </style>
@@ -173,67 +299,83 @@ button {
 
 <div class="container">
 
+    <!-- HEADER / ADD LEAD -->
+
     <div class="card">
 
         <h1>FollowUp</h1>
 
         <div class="subtitle">
-            Simple lead follow-up for service businesses. No CRM required.
+            Simple lead follow-up for service businesses.
+            No CRM required.
         </div>
 
         <div class="grid">
 
             <div class="full">
 
-                <label>Business name</label>
+                <label for="businessName">
+                    Business name
+                </label>
 
                 <input
                     id="businessName"
                     type="text"
-                    placeholder="e.g. ABC Cleaning"
+                    placeholder="Example: ABC Cleaning"
+                    autocomplete="organization"
                 >
 
             </div>
 
             <div>
 
-                <label>Customer name</label>
+                <label for="customerName">
+                    Customer name
+                </label>
 
                 <input
                     id="customerName"
                     type="text"
-                    placeholder="John"
+                    placeholder="Example: John"
+                    autocomplete="name"
                 >
 
             </div>
 
             <div>
 
-                <label>Phone</label>
+                <label for="phone">
+                    Phone
+                </label>
 
                 <input
                     id="phone"
                     type="tel"
                     placeholder="+1 555 123 4567"
+                    autocomplete="tel"
                 >
 
             </div>
 
             <div>
 
-                <label>Service</label>
+                <label for="service">
+                    Service
+                </label>
 
                 <input
                     id="service"
                     type="text"
-                    placeholder="House cleaning"
+                    placeholder="Example: House cleaning"
                 >
 
             </div>
 
             <div>
 
-                <label>Follow-up date & time</label>
+                <label for="followUp">
+                    Follow-up date & time
+                </label>
 
                 <input
                     id="followUp"
@@ -244,7 +386,9 @@ button {
 
             <div class="full">
 
-                <label>Notes</label>
+                <label for="notes">
+                    Notes
+                </label>
 
                 <textarea
                     id="notes"
@@ -255,34 +399,74 @@ button {
 
         </div>
 
-        <button class="add" onclick="addLead()">
+        <button
+            id="saveButton"
+            class="add-button"
+            type="button"
+            onclick="saveLead()"
+        >
             + ADD LEAD
         </button>
 
+        <button
+            id="cancelButton"
+            class="cancel-button"
+            type="button"
+            onclick="cancelEdit()"
+            style="display:none;"
+        >
+            CANCEL EDIT
+        </button>
+
+        <div
+            id="editingNote"
+            class="editing-note"
+        >
+            You are editing an existing lead.
+        </div>
+
+        <div class="small-note">
+            Your leads are stored locally in this browser.
+        </div>
+
     </div>
 
+
+    <!-- STATISTICS -->
 
     <div class="card">
 
         <div class="stats">
 
             <div class="stat">
-                <b id="total">0</b>
+                <span
+                    class="stat-number"
+                    id="totalCount"
+                >0</span>
                 Total
             </div>
 
             <div class="stat">
-                <b id="newCount">0</b>
+                <span
+                    class="stat-number"
+                    id="newCount"
+                >0</span>
                 New
             </div>
 
             <div class="stat">
-                <b id="dueCount">0</b>
+                <span
+                    class="stat-number"
+                    id="followUpCount"
+                >0</span>
                 Due
             </div>
 
             <div class="stat">
-                <b id="wonCount">0</b>
+                <span
+                    class="stat-number"
+                    id="wonCount"
+                >0</span>
                 Won
             </div>
 
@@ -291,11 +475,28 @@ button {
     </div>
 
 
+    <!-- LEADS -->
+
     <div class="card">
 
-        <h2 style="margin-top:0;">
-            Leads
-        </h2>
+        <div class="section-actions">
+
+            <h2>Leads</h2>
+
+            <button
+                class="export-button"
+                type="button"
+                onclick="exportCSV()"
+            >
+                EXPORT CSV
+            </button>
+
+        </div>
+
+        <div
+            id="dueBox"
+            class="due-box"
+        ></div>
 
         <div id="leadsList"></div>
 
@@ -306,32 +507,148 @@ button {
 
 <script>
 
-let leads = JSON.parse(
-    localStorage.getItem("followup_leads") || "[]"
+/*
+    FollowUp
+    Simple local lead management.
+
+    No external libraries.
+    No server.
+    Data is stored in localStorage.
+*/
+
+
+/* -----------------------------
+   STORAGE KEYS
+----------------------------- */
+
+const LEADS_KEY =
+    "followup_leads";
+
+const BUSINESS_KEY =
+    "followup_business";
+
+
+/* -----------------------------
+   LOAD DATA
+----------------------------- */
+
+let leads = [];
+
+let editingId = null;
+
+
+try {
+
+    const stored =
+        JSON.parse(
+            localStorage.getItem(LEADS_KEY) || "[]"
+        );
+
+    if (Array.isArray(stored)) {
+
+        leads = stored;
+
+    }
+
+} catch (error) {
+
+    leads = [];
+
+}
+
+
+/* -----------------------------
+   ELEMENTS
+----------------------------- */
+
+const businessInput =
+    document.getElementById(
+        "businessName"
+    );
+
+
+const customerInput =
+    document.getElementById(
+        "customerName"
+    );
+
+
+const phoneInput =
+    document.getElementById(
+        "phone"
+    );
+
+
+const serviceInput =
+    document.getElementById(
+        "service"
+    );
+
+
+const followUpInput =
+    document.getElementById(
+        "followUp"
+    );
+
+
+const notesInput =
+    document.getElementById(
+        "notes"
+    );
+
+
+const saveButton =
+    document.getElementById(
+        "saveButton"
+    );
+
+
+const cancelButton =
+    document.getElementById(
+        "cancelButton"
+    );
+
+
+const editingNote =
+    document.getElementById(
+        "editingNote"
+    );
+
+
+const dueBox =
+    document.getElementById(
+        "dueBox"
+    );
+
+
+/* -----------------------------
+   BUSINESS NAME
+----------------------------- */
+
+businessInput.value =
+    localStorage.getItem(
+        BUSINESS_KEY
+    ) || "";
+
+
+businessInput.addEventListener(
+    "input",
+    function () {
+
+        localStorage.setItem(
+            BUSINESS_KEY,
+            businessInput.value.trim()
+        );
+
+        render();
+
+    }
 );
 
 
-/* BUSINESS NAME */
-
-const businessInput =
-    document.getElementById("businessName");
-
-businessInput.value =
-    localStorage.getItem("followup_business") || "";
-
-businessInput.addEventListener("input", function () {
-
-    localStorage.setItem(
-        "followup_business",
-        businessInput.value.trim()
-    );
-
-    render();
-
-});
-
-
-/* HTML ESCAPE */
+/* -----------------------------
+   ESCAPE HTML
+----------------------------- */
 
 function escapeHTML(value) {
 
@@ -345,103 +662,39 @@ function escapeHTML(value) {
 }
 
 
-/* SAVE */
+/* -----------------------------
+   SAVE LEADS
+----------------------------- */
 
 function saveLeads() {
 
     localStorage.setItem(
-        "followup_leads",
+        LEADS_KEY,
         JSON.stringify(leads)
     );
 
-    render();
+}
+
+
+/* -----------------------------
+   GET BUSINESS NAME
+----------------------------- */
+
+function getBusinessName() {
+
+    const value =
+        businessInput.value.trim();
+
+    return value || "our team";
 
 }
 
 
-/* ADD LEAD */
-
-function addLead() {
-
-    const name =
-        document.getElementById("customerName")
-        .value.trim();
-
-    const phone =
-        document.getElementById("phone")
-        .value.trim();
-
-    const service =
-        document.getElementById("service")
-        .value.trim();
-
-    const followUp =
-        document.getElementById("followUp")
-        .value;
-
-    const notes =
-        document.getElementById("notes")
-        .value.trim();
-
-
-    if (!name || !phone) {
-
-        alert(
-            "Please enter customer name and phone."
-        );
-
-        return;
-
-    }
-
-
-    const lead = {
-
-        id: Date.now(),
-
-        name: name,
-
-        phone: phone,
-
-        service: service,
-
-        followUp: followUp,
-
-        notes: notes,
-
-        status: "NEW",
-
-        createdAt: new Date().toISOString()
-
-    };
-
-
-    leads.unshift(lead);
-
-    saveLeads();
-
-
-    document.getElementById("customerName").value = "";
-
-    document.getElementById("phone").value = "";
-
-    document.getElementById("service").value = "";
-
-    document.getElementById("followUp").value = "";
-
-    document.getElementById("notes").value = "";
-
-}
-
-
-/* MESSAGE */
+/* -----------------------------
+   CREATE MESSAGE
+----------------------------- */
 
 function createMessage(lead) {
-
-    const business =
-        localStorage.getItem("followup_business")
-        || "our team";
-
 
     let serviceText = "";
 
@@ -454,12 +707,11 @@ function createMessage(lead) {
 
     }
 
-
     return (
         "Hi " +
         lead.name +
         ", this is " +
-        business +
+        getBusinessName() +
         ". Sorry we missed you. " +
         "I’m following up" +
         serviceText +
@@ -469,17 +721,302 @@ function createMessage(lead) {
 }
 
 
-/* COPY MESSAGE */
+/* -----------------------------
+   CLEAR FORM
+----------------------------- */
+
+function clearForm() {
+
+    customerInput.value = "";
+
+    phoneInput.value = "";
+
+    serviceInput.value = "";
+
+    followUpInput.value = "";
+
+    notesInput.value = "";
+
+}
+
+
+/* -----------------------------
+   RESET EDIT MODE
+----------------------------- */
+
+function resetEditMode() {
+
+    editingId = null;
+
+    saveButton.textContent =
+        "+ ADD LEAD";
+
+    cancelButton.style.display =
+        "none";
+
+    editingNote.style.display =
+        "none";
+
+}
+
+
+/* -----------------------------
+   CANCEL EDIT
+----------------------------- */
+
+function cancelEdit() {
+
+    clearForm();
+
+    resetEditMode();
+
+}
+
+
+/* -----------------------------
+   SAVE / UPDATE LEAD
+----------------------------- */
+
+function saveLead() {
+
+    const name =
+        customerInput.value.trim();
+
+
+    const phone =
+        phoneInput.value.trim();
+
+
+    const service =
+        serviceInput.value.trim();
+
+
+    const followUp =
+        followUpInput.value;
+
+
+    const notes =
+        notesInput.value.trim();
+
+
+    if (!name) {
+
+        alert(
+            "Please enter the customer name."
+        );
+
+        customerInput.focus();
+
+        return;
+
+    }
+
+
+    if (!phone) {
+
+        alert(
+            "Please enter the customer phone."
+        );
+
+        phoneInput.focus();
+
+        return;
+
+    }
+
+
+    /* -------------------------
+       UPDATE EXISTING LEAD
+    ------------------------- */
+
+    if (editingId !== null) {
+
+        const lead =
+            leads.find(
+                function (item) {
+
+                    return item.id === editingId;
+
+                }
+            );
+
+
+        if (!lead) {
+
+            resetEditMode();
+
+            return;
+
+        }
+
+
+        lead.name =
+            name;
+
+        lead.phone =
+            phone;
+
+        lead.service =
+            service;
+
+        lead.followUp =
+            followUp;
+
+        lead.notes =
+            notes;
+
+
+        saveLeads();
+
+        clearForm();
+
+        resetEditMode();
+
+        render();
+
+        return;
+
+    }
+
+
+    /* -------------------------
+       CREATE NEW LEAD
+    ------------------------- */
+
+    const lead = {
+
+        id:
+            Date.now().toString() +
+            "-" +
+            Math.random()
+                .toString(36)
+                .slice(2, 8),
+
+        name:
+            name,
+
+        phone:
+            phone,
+
+        service:
+            service,
+
+        followUp:
+            followUp,
+
+        notes:
+            notes,
+
+        status:
+            "NEW",
+
+        createdAt:
+            new Date().toISOString()
+
+    };
+
+
+    leads.unshift(
+        lead
+    );
+
+
+    saveLeads();
+
+    clearForm();
+
+    render();
+
+}
+
+
+/* -----------------------------
+   EDIT LEAD
+----------------------------- */
+
+function editLead(id) {
+
+    const lead =
+        leads.find(
+            function (item) {
+
+                return item.id === id;
+
+            }
+        );
+
+
+    if (!lead) {
+        return;
+    }
+
+
+    editingId =
+        id;
+
+
+    customerInput.value =
+        lead.name || "";
+
+
+    phoneInput.value =
+        lead.phone || "";
+
+
+    serviceInput.value =
+        lead.service || "";
+
+
+    followUpInput.value =
+        lead.followUp || "";
+
+
+    notesInput.value =
+        lead.notes || "";
+
+
+    saveButton.textContent =
+        "UPDATE LEAD";
+
+
+    cancelButton.style.display =
+        "block";
+
+
+    editingNote.style.display =
+        "block";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+
+    customerInput.focus();
+
+}
+
+
+/* -----------------------------
+   COPY MESSAGE
+----------------------------- */
 
 function copyMessage(id) {
 
     const lead =
-        leads.find(function(item) {
-            return item.id === id;
-        });
+        leads.find(
+            function (item) {
+
+                return item.id === id;
+
+            }
+        );
 
 
-    if (!lead) return;
+    if (!lead) {
+        return;
+    }
 
 
     const message =
@@ -493,139 +1030,651 @@ function copyMessage(id) {
 
         navigator.clipboard
             .writeText(message)
-            .then(function() {
+            .then(function () {
 
-                alert("Message copied.");
+                alert(
+                    "Message copied."
+                );
+
+            })
+            .catch(function () {
+
+                fallbackCopy(message);
 
             });
 
     } else {
 
-        const textarea =
-            document.createElement("textarea");
-
-        textarea.value = message;
-
-        document.body.appendChild(textarea);
-
-        textarea.select();
-
-        document.execCommand("copy");
-
-        textarea.remove();
-
-        alert("Message copied.");
+        fallbackCopy(message);
 
     }
 
 }
 
 
-/* CHANGE STATUS */
+/* -----------------------------
+   COPY FALLBACK
+----------------------------- */
 
-function changeStatus(id, newStatus) {
+function fallbackCopy(text) {
 
-    const lead =
-        leads.find(function(item) {
-            return item.id === id;
-        });
-
-
-    if (!lead) return;
+    const textarea =
+        document.createElement(
+            "textarea"
+        );
 
 
-    lead.status = newStatus;
+    textarea.value =
+        text;
 
-    saveLeads();
+
+    textarea.style.position =
+        "fixed";
+
+
+    textarea.style.left =
+        "-9999px";
+
+
+    document.body.appendChild(
+        textarea
+    );
+
+
+    textarea.focus();
+
+    textarea.select();
+
+
+    try {
+
+        document.execCommand(
+            "copy"
+        );
+
+        alert(
+            "Message copied."
+        );
+
+    } catch (error) {
+
+        alert(
+            "Please copy the message manually."
+        );
+
+    }
+
+
+    textarea.remove();
 
 }
 
 
-/* DELETE */
+/* -----------------------------
+   WHATSAPP
+----------------------------- */
+
+function openWhatsApp(id) {
+
+    const lead =
+        leads.find(
+            function (item) {
+
+                return item.id === id;
+
+            }
+        );
+
+
+    if (!lead) {
+        return;
+    }
+
+
+    const phone =
+        String(
+            lead.phone || ""
+        )
+        .replace(
+            /[^\d]/g,
+            ""
+        );
+
+
+    if (!phone) {
+
+        alert(
+            "Please enter a valid phone number."
+        );
+
+        return;
+
+    }
+
+
+    const message =
+        createMessage(lead);
+
+
+    const url =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* -----------------------------
+   CHANGE STATUS
+----------------------------- */
+
+function changeStatus(
+    id,
+    newStatus
+) {
+
+    const lead =
+        leads.find(
+            function (item) {
+
+                return item.id === id;
+
+            }
+        );
+
+
+    if (!lead) {
+        return;
+    }
+
+
+    lead.status =
+        newStatus;
+
+
+    saveLeads();
+
+    render();
+
+}
+
+
+/* -----------------------------
+   DELETE LEAD
+----------------------------- */
 
 function deleteLead(id) {
 
-    if (
-        !confirm(
+    const confirmed =
+        confirm(
             "Delete this lead?"
-        )
-    ) {
+        );
+
+
+    if (!confirmed) {
         return;
     }
 
 
     leads =
-        leads.filter(function(item) {
-            return item.id !== id;
-        });
+        leads.filter(
+            function (item) {
+
+                return item.id !== id;
+
+            }
+        );
+
+
+    if (editingId === id) {
+
+        clearForm();
+
+        resetEditMode();
+
+    }
 
 
     saveLeads();
 
+    render();
+
 }
 
 
-/* RENDER */
+/* -----------------------------
+   UPDATE DUE DISPLAY
+----------------------------- */
 
-function render() {
+function isDue(lead) {
 
-    const now = Date.now();
+    if (
+        !lead.followUp ||
+        lead.status !== "NEW"
+    ) {
+
+        return false;
+
+    }
 
 
-    leads.forEach(function(lead) {
-
-        if (
-            lead.status === "NEW" &&
+    const time =
+        new Date(
             lead.followUp
-        ) {
+        ).getTime();
 
-            const followUpTime =
-                new Date(
-                    lead.followUp
-                ).getTime();
+
+    if (isNaN(time)) {
+
+        return false;
+
+    }
+
+
+    return time <= Date.now();
+
+}
+
+
+/* -----------------------------
+   SORT LEADS
+----------------------------- */
+
+function sortLeads() {
+
+    leads.sort(
+        function (a, b) {
+
+            const aDue =
+                isDue(a);
+
+
+            const bDue =
+                isDue(b);
+
+
+            if (aDue && !bDue) {
+                return -1;
+            }
+
+
+            if (!aDue && bDue) {
+                return 1;
+            }
+
+
+            const aTime =
+                a.followUp
+                    ? new Date(
+                        a.followUp
+                    ).getTime()
+                    : Infinity;
+
+
+            const bTime =
+                b.followUp
+                    ? new Date(
+                        b.followUp
+                    ).getTime()
+                    : Infinity;
 
 
             if (
-                followUpTime <= now
+                !isNaN(aTime) &&
+                !isNaN(bTime)
+            ) {
+
+                return aTime - bTime;
+
+            }
+
+
+            return 0;
+
+        }
+    );
+
+}
+
+
+/* -----------------------------
+   STATUS BADGE CLASS
+----------------------------- */
+
+function getBadgeClass(status) {
+
+    if (status === "FOLLOW UP") {
+
+        return "badge follow-up";
+
+    }
+
+
+    if (status === "WON") {
+
+        return "badge won";
+
+    }
+
+
+    if (status === "LOST") {
+
+        return "badge lost";
+
+    }
+
+
+    if (status === "CONTACTED") {
+
+        return "badge contacted";
+
+    }
+
+
+    return "badge";
+
+}
+
+
+/* -----------------------------
+   UPDATE DUE STATUS
+----------------------------- */
+
+function updateDueStatuses() {
+
+    let changed =
+        false;
+
+
+    leads.forEach(
+        function (lead) {
+
+            if (
+                lead.status === "NEW" &&
+                isDue(lead)
             ) {
 
                 lead.status =
                     "FOLLOW UP";
 
+                changed =
+                    true;
+
             }
 
         }
-
-    });
-
-
-    document.getElementById("total")
-        .textContent = leads.length;
+    );
 
 
-    document.getElementById("newCount")
+    if (changed) {
+
+        saveLeads();
+
+    }
+
+}
+
+
+/* -----------------------------
+   EXPORT CSV
+----------------------------- */
+
+function exportCSV() {
+
+    if (leads.length === 0) {
+
+        alert(
+            "There are no leads to export."
+        );
+
+        return;
+
+    }
+
+
+    const headers = [
+        "Customer Name",
+        "Phone",
+        "Service",
+        "Follow-up",
+        "Status",
+        "Notes",
+        "Created At"
+    ];
+
+
+    const rows =
+        leads.map(
+            function (lead) {
+
+                return [
+
+                    lead.name || "",
+
+                    lead.phone || "",
+
+                    lead.service || "",
+
+                    lead.followUp || "",
+
+                    lead.status || "",
+
+                    lead.notes || "",
+
+                    lead.createdAt || ""
+
+                ];
+
+            }
+        );
+
+
+    const csvRows = [
+        headers,
+        ...rows
+    ];
+
+
+    const csv =
+        csvRows
+            .map(
+                function (row) {
+
+                    return row
+                        .map(
+                            function (value) {
+
+                                return '"' +
+                                    String(
+                                        value
+                                    )
+                                    .replace(
+                                        /"/g,
+                                        '""'
+                                    ) +
+                                    '"';
+
+                            }
+                        )
+                        .join(",");
+
+                }
+            )
+            .join("\r\n");
+
+
+    const blob =
+        new Blob(
+            ["\ufeff" + csv],
+            {
+                type:
+                    "text/csv;charset=utf-8;"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.href =
+        url;
+
+
+    link.download =
+        "followup-leads-" +
+        new Date()
+            .toISOString()
+            .slice(0, 10) +
+        ".csv";
+
+
+    document.body.appendChild(
+        link
+    );
+
+
+    link.click();
+
+
+    link.remove();
+
+
+    URL.revokeObjectURL(
+        url
+    );
+
+}
+
+
+/* -----------------------------
+   RENDER
+----------------------------- */
+
+function render() {
+
+    updateDueStatuses();
+
+    sortLeads();
+
+
+    /* -------------------------
+       STATISTICS
+    ------------------------- */
+
+    document
+        .getElementById(
+            "totalCount"
+        )
         .textContent =
-        leads.filter(function(lead) {
-            return lead.status === "NEW";
-        }).length;
+        leads.length;
 
 
-    document.getElementById("dueCount")
+    document
+        .getElementById(
+            "newCount"
+        )
         .textContent =
-        leads.filter(function(lead) {
-            return lead.status === "FOLLOW UP";
-        }).length;
+        leads.filter(
+            function (lead) {
+
+                return lead.status === "NEW";
+
+            }
+        ).length;
 
 
-    document.getElementById("wonCount")
+    document
+        .getElementById(
+            "followUpCount"
+        )
         .textContent =
-        leads.filter(function(lead) {
-            return lead.status === "WON";
-        }).length;
+        leads.filter(
+            function (lead) {
 
+                return lead.status === "FOLLOW UP";
+
+            }
+        ).length;
+
+
+    document
+        .getElementById(
+            "wonCount"
+        )
+        .textContent =
+        leads.filter(
+            function (lead) {
+
+                return lead.status === "WON";
+
+            }
+        ).length;
+
+
+    /* -------------------------
+       DUE BOX
+    ------------------------- */
+
+    const dueLeads =
+        leads.filter(
+            function (lead) {
+
+                return lead.status === "FOLLOW UP";
+
+            }
+        );
+
+
+    if (dueLeads.length > 0) {
+
+        dueBox.style.display =
+            "block";
+
+
+        dueBox.textContent =
+            "FOLLOW UP NOW: " +
+            dueLeads.length +
+            " lead" +
+            (
+                dueLeads.length === 1
+                    ? ""
+                    : "s"
+            );
+
+    } else {
+
+        dueBox.style.display =
+            "none";
+
+    }
+
+
+    /* -------------------------
+       LEADS LIST
+    ------------------------- */
 
     const list =
-        document.getElementById("leadsList");
+        document.getElementById(
+            "leadsList"
+        );
 
 
     if (leads.length === 0) {
@@ -640,31 +1689,21 @@ function render() {
     }
 
 
-    list.innerHTML =
-        leads.map(function(lead) {
-
-            let followUpHTML = "";
-
-            if (lead.followUp) {
-
-                followUpHTML =
-                    "<div><b>Follow-up:</b> " +
-                    escapeHTML(
-                        new Date(
-                            lead.followUp
-                        ).toLocaleString()
-                    ) +
-                    "</div>";
-
-            }
+    let html = "";
 
 
-            let serviceHTML = "";
+    leads.forEach(
+        function (lead) {
+
+            let serviceHTML =
+                "";
+
 
             if (lead.service) {
 
                 serviceHTML =
-                    "<div><b>Service:</b> " +
+                    "<div>" +
+                    "<b>Service:</b> " +
                     escapeHTML(
                         lead.service
                     ) +
@@ -673,12 +1712,46 @@ function render() {
             }
 
 
-            let notesHTML = "";
+            let followUpHTML =
+                "";
+
+
+            if (lead.followUp) {
+
+                const date =
+                    new Date(
+                        lead.followUp
+                    );
+
+
+                if (
+                    !isNaN(
+                        date.getTime()
+                    )
+                ) {
+
+                    followUpHTML =
+                        "<div>" +
+                        "<b>Follow-up:</b> " +
+                        escapeHTML(
+                            date.toLocaleString()
+                        ) +
+                        "</div>";
+
+                }
+
+            }
+
+
+            let notesHTML =
+                "";
+
 
             if (lead.notes) {
 
                 notesHTML =
-                    "<div><b>Notes:</b> " +
+                    "<div>" +
+                    "<b>Notes:</b> " +
                     escapeHTML(
                         lead.notes
                     ) +
@@ -687,8 +1760,13 @@ function render() {
             }
 
 
-            return (
+            const badgeClass =
+                getBadgeClass(
+                    lead.status
+                );
 
+
+            html +=
                 '<div class="lead">' +
 
                     '<div class="lead-header">' +
@@ -696,24 +1774,36 @@ function render() {
                         '<div>' +
 
                             '<div class="customer-name">' +
-                            escapeHTML(lead.name) +
+                            escapeHTML(
+                                lead.name
+                            ) +
                             '</div>' +
 
-                            escapeHTML(lead.phone) +
+                            escapeHTML(
+                                lead.phone
+                            ) +
 
                         '</div>' +
 
-                        '<span class="badge">' +
-                        escapeHTML(lead.status) +
+                        '<span class="' +
+                        badgeClass +
+                        '">' +
+                        escapeHTML(
+                            lead.status
+                        ) +
                         '</span>' +
 
                     '</div>' +
 
-                    serviceHTML +
+                    '<div class="lead-info">' +
 
-                    followUpHTML +
+                        serviceHTML +
 
-                    notesHTML +
+                        followUpHTML +
+
+                        notesHTML +
+
+                    '</div>' +
 
                     '<div class="message">' +
                     escapeHTML(
@@ -721,59 +1811,92 @@ function render() {
                     ) +
                     '</div>' +
 
-                    '<button class="copy" ' +
-                    'onclick="copyMessage(' +
+                    '<button ' +
+                    'class="whatsapp-button" ' +
+                    'type="button" ' +
+                    'onclick="openWhatsApp(\'' +
                     lead.id +
-                    ')">' +
+                    '\')">' +
+                    'WHATSAPP' +
+                    '</button>' +
+
+                    '<button ' +
+                    'class="copy-button" ' +
+                    'type="button" ' +
+                    'onclick="copyMessage(\'' +
+                    lead.id +
+                    '\')">' +
                     'COPY MESSAGE' +
                     '</button>' +
 
-                    '<button onclick="changeStatus(' +
+                    '<button ' +
+                    'class="edit-button" ' +
+                    'type="button" ' +
+                    'onclick="editLead(\'' +
                     lead.id +
-                    ', \'CONTACTED\')">' +
+                    '\')">' +
+                    'EDIT' +
+                    '</button>' +
+
+                    '<button ' +
+                    'class="status-button" ' +
+                    'type="button" ' +
+                    'onclick="changeStatus(\'' +
+                    lead.id +
+                    '\', \'CONTACTED\')">' +
                     'CONTACTED' +
                     '</button>' +
 
-                    '<button onclick="changeStatus(' +
+                    '<button ' +
+                    'class="status-button" ' +
+                    'type="button" ' +
+                    'onclick="changeStatus(\'' +
                     lead.id +
-                    ', \'WON\')">' +
+                    '\', \'WON\')">' +
                     'WON' +
                     '</button>' +
 
-                    '<button onclick="changeStatus(' +
+                    '<button ' +
+                    'class="status-button" ' +
+                    'type="button" ' +
+                    'onclick="changeStatus(\'' +
                     lead.id +
-                    ', \'LOST\')">' +
+                    '\', \'LOST\')">' +
                     'LOST' +
                     '</button>' +
 
-                    '<button class="delete" ' +
-                    'onclick="deleteLead(' +
+                    '<button ' +
+                    'class="delete-button" ' +
+                    'type="button" ' +
+                    'onclick="deleteLead(\'' +
                     lead.id +
-                    ')">' +
+                    '\')">' +
                     'DELETE' +
                     '</button>' +
 
-                '</div>'
+                '</div>';
 
-            );
-
-        }).join("");
-
-
-    localStorage.setItem(
-        "followup_leads",
-        JSON.stringify(leads)
+        }
     );
+
+
+    list.innerHTML =
+        html;
 
 }
 
 
-/* START */
+/* -----------------------------
+   START
+----------------------------- */
 
 render();
 
 
-/* CHECK DUE LEADS */
+/*
+   Refresh follow-up status
+   every 30 seconds while open.
+*/
 
 setInterval(
     render,
